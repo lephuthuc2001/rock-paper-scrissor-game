@@ -45,6 +45,7 @@ export default function Main() {
 
   return (
     <div className="conainer">
+      <h2>My Name is Thuc</h2>
       <div className="main">
         <Result
           user1GameItem={userGameItem}
