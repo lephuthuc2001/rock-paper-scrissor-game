@@ -27,8 +27,8 @@ const gameItems = [
 ];
 
 export default function Main() {
-  const [result, setResult] = useState("N/N");
-  const [userGameItem, setUserGameItem] = useState(null);
+  const [result, setResult] = useState("N/N"); /// chưa chơi nên kết quả là hòa => initial state = N/N
+  const [userGameItem, setUserGameItem] = useState(null); //// chưa chơi nên kéo búa bao chưa ra
   const [computerGameItem, setComputerGameItem] = useState(null);
 
   const handleGameItemChange = (gameItem) => {
@@ -41,20 +41,20 @@ export default function Main() {
       setComputerGameItem({ ...computerNewItem });
       setResult(calculatorUserWinner(userGameItem, computerNewItem));
     }
-  }, [userGameItem]);
+  }, [userGameItem]); /// nếu user chọn kéo búa bao => lấy random item   => đi so sánh
 
   return (
     <div className="conainer">
       <div className="main">
         <Result
-          user1GameItem={"Your code here"}
-          user2GameItem={"Your code here"}
-          result={"Your code here"}
+          user1GameItem={userGameItem}
+          user2GameItem={computerGameItem}
+          result={result}
         />
         <Display />
         <Choices
-          gameItems={"Your code here"}
-          handleGameItemChange={"Your code here"}
+          gameItems={gameItems}
+          handleGameItemChange={handleGameItemChange}
         />
       </div>
     </div>
